@@ -1,0 +1,26 @@
+<form action="/comment" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="sender" value="Bob">
+
+    </div>
+    <div>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="pwd" maxlength="30" required>
+    </div>
+    <div>
+        <label for="msg">Message:</label>
+        <textarea id="msg" name="message">ciao!</textarea>
+    </div>
+    <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="milestone">
+    </div>
+    <div>
+        <label for="comment">Message:</label>
+        <textarea id="comment" name="comment" placeholder="Enter your comment here."></textarea>
+    </div>
+    <div>
+        <button type="submit">Send</button>
+    </div>
+</form>
