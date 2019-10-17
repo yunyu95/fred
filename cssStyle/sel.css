@@ -1,0 +1,25 @@
+#a{
+    color:red
+}
+#b{
+    color:green
+}
+#c{
+    color:yellow
+}
+#d{
+    color:blue
+}
+body>p{
+    color:rebeccapurple;
+    border-style:ridge;
+    font-size: 150px;
+}
+
+body{
+    background-color: skyblue;
+}
+
+h1{
+    color:darkorange;
+}

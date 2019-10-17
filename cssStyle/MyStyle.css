@@ -1,0 +1,10 @@
+h1:hover {color: skyblue;} 
+body {background-color: grey;
+      margin: 380px;
+      margin-left: 600px;}
+span:hover {border-style:ridge}
+span {color: red}
+#p1 {font-family: Arial;
+    font-size: 12pt;
+    color: springgreen}
+  
