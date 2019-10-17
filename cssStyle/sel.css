@@ -14,12 +14,42 @@ body>p{
     color:rebeccapurple;
     border-style:ridge;
     font-size: 150px;
+    background-color:white;
 }
-
-body{
+/*body{
     background-color: skyblue;
-}
-
+}*/
 h1{
     color:darkorange;
+}
+[type=text] {
+    background-color: olive;
+    }
+[type=number] {
+    background-color: yellow;
+    }
+input:hover {
+    color: blue;
+    }
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    Width: 50%;
+    margin: 20px;
+    }
+td, th {
+    border: 1px solid blue;
+    padding: 10px;
+    text-align: center;
+    }
+th {
+    background-color: lightblue;
+    }
+td {
+    background-color: lightgreen;
+    }
+body{
+    width: 1000px;
+    height: 400px;
+    background-image: url(https://www.laleggepertutti.it/wp-content/uploads/2013/02/I-Comuni-dovranno-piantare-un-albero-per-ogni-neonato-in-vigore-la-legge-dal-16-febbraio-472x270.jpg);
 }

@@ -10,32 +10,62 @@
 
 <body>
     <p>Hello world!</p>
+    
+        <h1>Quale è il colore della tua squadra?</h1>
 
-    <h1>Quale è il colore della tua squadra?</h1>
+        <form form action="scelta" method="post">
 
-    <form form action="scelta" method="post">
+            <div>
 
-        <div>
+                <p id="a">Rosso:</p>
+                <input type="radio" name="scelta" value="Rosso">
 
-            <p id="a">Rosso:</p>
-            <input type="radio" name="scelta" value="Rosso">
+                <p id="b">Verde:</p>
+                <input type="radio" name="scelta" value="Verde">
 
-            <p id="b">Verde:</p>
-            <input type="radio" name="scelta" value="Verde">
+                <p id="c">Giallo:</p>
+                <input type="radio" name="scelta" value="Giallo">
 
-            <p id="c">Giallo:</p>
-            <input type="radio" name="scelta" value="Giallo">
+                <p id="d">Blu:</p>
+                <input type="radio" name="scelta" value="Blu">
 
-            <p id="d">Blu:</p>
-            <input type="radio" name="scelta" value="Blu">
+            </div>
 
-        </div>
+            <div>
+                <input name="firstname" type="text">
+                <input name="lastname" type="text">
+                <input name="age" type="number">
+            </div>
 
-        <div>
-            <button type="submit">Send</button>
-        </div>
-        
+            <div>
+                <button type="submit">Send</button>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Left</th>
+                    <th>Center</th>
+                    <th>Right</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+            </table>
+  
     </form>
+
 </body>
 
 </html>
