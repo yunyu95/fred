@@ -1,10 +1,24 @@
 h1:hover {color: skyblue;} 
-body {background-color: grey;
-      margin: 380px;
-      margin-left: 600px;}
 span:hover {border-style:ridge}
 span {color: red}
 #p1 {font-family: Arial;
     font-size: 12pt;
     color: springgreen}
-  
+div {
+        background-color: red;
+    }
+.container-fluid {
+        background-color: rosybrown;
+    }
+
+.yellow {
+        background-color: blue;
+    }
+
+table:hover{
+    background-color: crimson;
+}
+
+#dark{
+    background-color: black;
+}
