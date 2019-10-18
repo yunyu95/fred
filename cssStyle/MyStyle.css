@@ -22,3 +22,6 @@ table:hover{
 #dark{
     background-color: black;
 }
+td{
+    width: 50%;
+}
