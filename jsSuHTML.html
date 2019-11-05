@@ -11,18 +11,42 @@
 </head>
 
 <body>
-    <!--div>
-        <form action="action" onsubmit="return check();">
-            <input id="user">
-            <button type="submit">Send</button>
-        </form>
-    </div-->
+
+    <h1 id="title" onmouseover="colorChange();"> Hello !!!</h1>
+
+
+    <form action="action" onsubmit="return check();">
+        <input id="user">
+        <button type="submit">Send</button>
+    </form><br>
+
+
+    <form action="action">
+        <label for="color">Color:</label>
+        <input id="color">
+        <button type="button" onclick="changeBgColor();">Send</button>
+    </form><br>
+
+
+    <select name="option" id="option" onchange="changeOption();">
+        <option value="red">red</option>
+        <option value="white" selected>white</option>
+        <option value="pink">pink</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="yellow">yellow</option>
+        <option value="orange">orange</option>
+        <option value="grey">grey</option>
+        <option value="black">black</option>
+    </select><br><br>
+
+    <img src="img/dog.png" id="image" height="300px" width="600px" onmouseover="changePos();"  onmouseout="rotation()">
+
     <div>
-        <form action="action">
-            <label for="color">Color:</label>
-            <input id="color">
-            <button type="button" onclick="return changeBgColor();">Send</button>
-        </form>
+        <h3>Developer info</h3>
+        <textarea id="info" rows="10" cols="40"></textarea>
+        <button onclick="getInfo();">Get programmer info</button>
+        <button onclick="deleteAll();">Delete all</button>
     </div>
 
 </body>
