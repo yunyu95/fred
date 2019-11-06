@@ -78,7 +78,7 @@ function callback() {
         target.value += "[" + this.status + "]\n";
         return;
     }
-    let json = JSON.parse(this.responseText);
+    let json = JSON.parse(this.responseText);  // trasforma il testo che mi arriva dalla request in un documento formato .json
     target.value += json.name + '\n';
     target.value += json.job.title + '\n';
     target.value += json.job.languages + '\n';

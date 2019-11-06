@@ -8,7 +8,7 @@ function romanNumerals(number) {
         check = check / 10;
         numLen++;
     } while (check >= 1)
-    for (let i = numLen - 1; i >= 0 && number !== 0; i--) {
+    for (let i = numLen - 1; i >= 0; i--) {
         let div = Math.floor(number / 10 ** i);
         number = number % 10 ** i;
         if (div === 0) {
@@ -19,10 +19,10 @@ function romanNumerals(number) {
     return roman;
 }
 
-console.log(romanNumerals(6));
+/*console.log(romanNumerals(6));
 console.log(romanNumerals(10));
 console.log(romanNumerals(76));
 console.log(romanNumerals(602));
-console.log(romanNumerals(3888));
+console.log(romanNumerals(3888));*/
 
 

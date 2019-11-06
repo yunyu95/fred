@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Convertitore decimale-Romano</title>
+    <meta charset="utf-8">
+    <script src="js/Romana.js"></script>
+    <script src="js/games.js"></script>
+    <style type="text/css">
+        @import url(cssStyle/conversionRoman.css);
+    </style>
+</head>
+
+<body>
+    <p>CONVERTITORE DECIMALE-ROMANO</p>
+    <div>
+        <textarea id="decimale" maxlength="4" onkeypress="return isNum(event);" rows="10" cols="40" onchange="cancella();"
+            placeholder="Inserisci il numero decimale da convertire (tra 1 e 3999 inclusi)"></textarea>
+        <button type="button" onclick="romana();">Converti</button>
+    </div><br>
+    <div>
+        <textarea id="romano" rows="10" cols="40" placeholder="Visualizza numero romano" readonly></textarea>
+    </div>
+</body>
+
+</html>
