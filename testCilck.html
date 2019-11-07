@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Click and doubleclick</title>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/clickDbclick.js"></script>
+    <script src="js/dimension.js"></script>
+    <style type="text/css">
+        @import url(cssStyle/jq.css);
+    </style>
+</head>
+
+<body>
+    <div>
+        Clicca per andare in un'altra <a href="https://it.wikipedia.org/wiki/Ciao">pagina</a>
+    </div>
+
+    <textarea id="coord" placeholder="coordinate" rows="10" cols="20"></textarea>
+    
+    <p id="sal" class="red">Come va?</p>
+    <div>
+
+        <button type="button" id="but1">Maiuscolo</button>
+        <button type="button" id="but2">Minuscolo</button>
+        <button type="button" id="but3">Toggle</button>
+    </div>
+
+    <hr>
+    <div>
+        <textarea id="testo" placeholder="scrivi il tuo testo" rows="10" cols="30"></textarea>
+        <button type="button" id="bottone">Sposta il testo</button>
+        <button type="button" id="aum">Aumenta il testo</button>
+        <button type="button" id="dim">Diminuisci il testo</button>
+    </div> <br>
+
+    <p id="paragrafo"></p>
+</body>
+
+</html>

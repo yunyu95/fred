@@ -18,11 +18,15 @@ function callback() {
     lavoro = json.job.title;
     document.getElementById('name').value = nome;
     document.getElementById('job').value = lavoro;
+    let obj = {};
     for (let i = 0; i < json.job.languages.length; i++) {
-        switch (json.job.languages[i]) {
-            case 'JS':
-                document.getElementById('langJS').checked = true;
-                break;
+        obj[json.job.languages[i]] = 1;
+    }
+
+    let linguaggi = Object.keys(obj);
+    for (let i = 0; i<linguaggi.length;i++) {
+        if (obj[linguaggi[i]] === 1) {
+            document.getElementById(linguaggi[i]).checked = true;
         }
     }
 }
