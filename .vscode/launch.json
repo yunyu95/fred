@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\ts\\furredAnimal.ts",
+            "program": "${workspaceFolder}\\ts\\negozioBrush.ts",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
