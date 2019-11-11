@@ -6,10 +6,11 @@ function isPangram(value) {
     if (typeof (value) !== 'string') {
         return undefined;
     }
+    let lettera;
     for (let i = 0; i < value.length; i++) {
-        value[i].toLowerCase();
-        if (value[i] >= 'a' && value[i] <= 'z') {
-            alphabet[value[i]]++;
+        lettera = value[i].toLowerCase();
+        if (lettera >= 'a' && lettera <= 'z') {
+            alphabet[lettera]++;
         }
     }
     let check = Object.keys(alphabet);
@@ -20,11 +21,11 @@ function isPangram(value) {
     }
     return true;
 }
-/*
+
 console.log(isPangram() === undefined);
 console.log(isPangram(55) === undefined);
 console.log(isPangram('ciao') === false);
-console.log(isPangram('Quel vituperabile xenofobo zelante assaggia il whisky') === false);*/
+console.log(isPangram('Quel vituperabile xenofobo zelante assaggia il whisky') === false);
 console.log(isPangram('Quel vituperabile xenofobo zelante assaggia il whisky ed esclama: alleluja!') === true);
 console.log(isPangram('Fabrizio ha visto Max acquistandogli juta per New York 1234567890.') === true);
 
