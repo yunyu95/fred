@@ -1,47 +1,25 @@
-function camelCase(str: string): string {
-    if (str.length === 0) {
-        return str;
+function digPow(n: number, p: number) {
+    // your code
+    let init:number = n;
+    let array = [];
+    while (n !== 0) {
+        array.push(n % 10);
+        n = Math.floor(n / 10);
     }
-    let change: string[] = str.split('');
-    for (let i = 0; i < change.length; i++) {
-        if (change[i].codePointAt(0) < 65 && change[i].codePointAt(0) > 0) {
-            change[i] = String.fromCodePoint(change[i].charCodeAt(0) + 32);
-        }
-        else {
-            change[i] = change[i];
-        }
-    }
-    str = change.join('');
-    let array: string[] = [];
-    let init: number = 0;
-    for (let i = 0; i <= str.length; i++) {
-        if (str[i] === ' ' || i === str.length) {
-            array.push(str.slice(init, i));
-            init = i + 1;
-        }
-    }
-    if (array[0] === '') {
-        array.shift();
-    }
-    if (array[array.length - 1] === '') {
-        array.pop();
-    }
-    let camel: string = '';
+    array.reverse();
+    let sum: number = 0;
     for (let i = 0; i < array.length; i++) {
-        let temp: string = array[i][0];
-        if (temp !== undefined && temp.charCodeAt(0) > 96 && temp.charCodeAt(0) < 127) {
-            temp = String.fromCodePoint(temp.charCodeAt(0) - 32);
-        }
-        camel += (temp + array[i].slice(1, array[i].length));
+        sum += array[i] ** (p + i);
     }
-    return camel;
+    let check: number = Math.floor(sum / init);
+    if (check * init === sum) {
+        return check;
+    }
+    return -1;
 }
 
-console.log(camelCase('QVrvMpKCAk:JQdYQ5tJdAULlW)EgVHqypXHnWjqIWMIXXNEhlDOYVOhhYsyEVwPk#UPtiABAxV7RfILZKcJAL')==='QVrvMpKCAkZJQdYQUtJdAULlWIEgVHqypXHnWjqIWMIXXNEhlDOYVOhhYsyEVwPkCUPtiABAxVWRfILZKcJAL');
-
-console.log(camelCase("say hello "));
-console.log(camelCase("camel case method"));
-console.log(camelCase("test case"));
-console.log(camelCase(' camel case word'));
 
 
+
+//console.log(digPow(89, 1))
+console.log(digPow(114, 3))
