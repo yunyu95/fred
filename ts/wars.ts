@@ -1,25 +1,33 @@
-function digPow(n: number, p: number) {
-    // your code
-    let init:number = n;
-    let array = [];
-    while (n !== 0) {
-        array.push(n % 10);
-        n = Math.floor(n / 10);
+function sortArray(array) {
+    // Return a sorted array. sort the odd
+    if (array.length === 0) {
+        return array;
     }
-    array.reverse();
-    let sum: number = 0;
+    let odd = [];
     for (let i = 0; i < array.length; i++) {
-        sum += array[i] ** (p + i);
+        if (array[i] % 2) {
+            odd.push(array[i]);
+        }
     }
-    let check: number = Math.floor(sum / init);
-    if (check * init === sum) {
-        return check;
+    odd.sort((left, right) => left == right ? 0 : left < right ? -1 : 1);
+    let cont = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2) {
+            array[i] = odd[cont];
+            cont++;
+        }
     }
-    return -1;
+    return array;
 }
 
 
-
-
 //console.log(digPow(89, 1))
-console.log(digPow(114, 3))
+console.log(balance('1000.00 125 Market 125.45 126 Hardware 34.95'))
+
+
+"1000.00
+125 Market 125.45
+126 Hardware 34.95
+127 Video 7.45
+128 Book 14.32
+129 Gasoline 16.10"
