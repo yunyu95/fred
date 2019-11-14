@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\ts\\wars.ts",
+            "program": "${workspaceFolder}\\ts\\classi.ts",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
