@@ -1,4 +1,4 @@
-function score(dice) {
+function score(dice) {    //greed is good 5kyu
     dice.sort(
         (left, right) => left == right ? 0 :
         left < right ? -1 : 1);
