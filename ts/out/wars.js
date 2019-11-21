@@ -1,118 +1,21 @@
-function score(dice) {
-    dice.sort((left, right) => left == right ? 0 :
-        left < right ? -1 : 1);
-    let check = 1;
-    let index = 0;
-    let cont = 0;
-    let point = 0;
-    for (let i = 0; i < dice.length; i++) {
-        if (dice[i] === check) {
-            cont++;
+function sumIntervals(intervals) {
+    //TODO
+    let sum = 0;
+    intervals.sort(
+        (left, right) => left[0] == right[0] ? 0 :
+            left[0] < right[0] ? -1 : 1);
+    let second = intervals[0][0];;
+    for (let i = 0; i < intervals.length; i++) {
+        if (second < intervals[i][0]) {
+            second = intervals[i][0];
+            if (intervals[i][1] < intervals[i - 1][1]) {
+                continue;
+            }
         }
-        else {
-            check++;
-            index = i - 1;
-            break;
-        }
+        sum += intervals[i][1] - second;
+        second = intervals[i][1];
     }
-    while (cont > 0) {
-        if (cont >= 3) {
-            point += 1000;
-            cont -= 3;
-        }
-        else {
-            point = cont * 100;
-        }
-    }
-    cont = 0;
-    for (let i = index; i < dice.length; i++) {
-        if (dice[i] === check) {
-            cont++;
-        }
-        else {
-            check++;
-            index = i - 1;
-            break;
-        }
-    }
-    while (cont > 0) {
-        if (cont >= 3) {
-            point += 200;
-            cont -= 3;
-        }
-    }
-    cont = 0;
-    for (let i = index; i < dice.length; i++) {
-        if (dice[i] === check) {
-            cont++;
-        }
-        else {
-            check++;
-            index = i - 1;
-            break;
-        }
-    }
-    while (cont > 0) {
-        if (cont >= 3) {
-            point += 300;
-            cont -= 3;
-        }
-    }
-    cont = 0;
-    for (let i = index; i < dice.length; i++) {
-        if (dice[i] === check) {
-            cont++;
-        }
-        else {
-            check++;
-            index = i - 1;
-            break;
-        }
-    }
-    while (cont > 0) {
-        if (cont >= 3) {
-            point += 400;
-            cont -= 3;
-        }
-    }
-    cont = 0;
-    for (let i = index; i < dice.length; i++) {
-        if (dice[i] === check) {
-            cont++;
-        }
-        else {
-            check++;
-            index = i - 1;
-            break;
-        }
-    }
-    while (cont > 0) {
-        if (cont >= 3) {
-            point += 500;
-            cont -= 3;
-        }
-        else {
-            point = cont * 100;
-        }
-    }
-    cont = 0;
-    for (let i = index; i < dice.length; i++) {
-        if (dice[i] === check) {
-            cont++;
-        }
-        else {
-            check++;
-            index = i - 1;
-            break;
-        }
-    }
-    while (cont > 0) {
-        if (cont >= 3) {
-            point += 600;
-            cont -= 3;
-        }
-    }
-    return point;
+    return sum;
 }
-console.log(score([4, 4, 4, 3, 3]));
-//# sourceMappingURL=wars.js.map
+
+console.log(sumIntervals([[1, 4], [77, 100], [30, 500]]))

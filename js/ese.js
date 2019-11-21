@@ -12,7 +12,10 @@ function sumIntervals(intervals) {
                 continue;
             }
         }
-        sum += intervals[i][1] - second;
+        let int = intervals[i][1] - second;
+        if (int > 0) {
+            sum += int;
+        }
         second = intervals[i][1];
     }
     return sum;
