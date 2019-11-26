@@ -5,6 +5,7 @@ import { NgbModule, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -40,7 +41,7 @@ import { ShowModelsComponent } from './show-models/show-models.component';
     PricePipe,
     InsertModelComponent,
     SearchModelsComponent,
-    ShowModelsComponent
+    ShowModelsComponent,
   ],
   imports: [
     BrowserModule,
