@@ -19,6 +19,9 @@ import { ShowBrandsComponent } from './show-brands/show-brands.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { PricePipe } from './pipes/price.pipe';
+import { InsertModelComponent } from './insert-model/insert-model.component';
+import { SearchModelsComponent } from './search-models/search-models.component';
+import { ShowModelsComponent } from './show-models/show-models.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { PricePipe } from './pipes/price.pipe';
     UpdateBrandComponent,
     ShowBrandsComponent,
     PageNotFoundComponent,
-    PricePipe
+    PricePipe,
+    InsertModelComponent,
+    SearchModelsComponent,
+    ShowModelsComponent
   ],
   imports: [
     BrowserModule,

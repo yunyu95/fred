@@ -1,34 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { BrandDataService } from '../model/brand-data.service';
+import { ModelDataService } from '../model/model-data.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateResult } from '../model/update-result';
 
 @Component({
-  selector: 'app-insert-brand',
-  templateUrl: './insert-brand.component.html',
-  styleUrls: ['./insert-brand.component.scss']
+  selector: 'app-insert-model',
+  templateUrl: './insert-model.component.html',
+  styleUrls: ['./insert-model.component.scss']
 })
-export class InsertBrandComponent implements OnInit {
-
-  marcaFG: FormGroup;
+export class InsertModelComponent implements OnInit {
+  modelFG: FormGroup;
 
   nomeCtrl = false;
-  fondazioneCtrl = false;
+  cilindrataCtrl = false;
   websiteCtrl = false;
 
   messaggio: string;
   messaggioCtrl = false;
 
-  constructor(private fb: FormBuilder, private brandSvc: BrandDataService, private modalSvc: NgbModal) { }
+  constructor(private fb: FormBuilder, private modelSvc: ModelDataService, private modalSvc: NgbModal) { }
 
   ngOnInit() {
-    this.marcaFG = this.fb.group({
+    this.modelFG = this.fb.group({
       nome: [
         '',
         Validators.required
       ],
-      fondazione: [
+      cilindrata: [
         '',
         Validators.compose([
           Validators.required,
@@ -46,13 +45,13 @@ export class InsertBrandComponent implements OnInit {
   }
 
   check(element: string) {
-    const ctrl = (this.marcaFG.get(element).touched || this.marcaFG.get(element).dirty) && this.marcaFG.get(element).invalid;
+    const ctrl = (this.modelFG.get(element).touched || this.modelFG.get(element).dirty) && this.modelFG.get(element).invalid;
     switch (element) {
       case 'nome':
         this.nomeCtrl = ctrl;
         break;
-      case 'fondazione':
-        this.fondazioneCtrl = ctrl;
+      case 'cilindrata':
+        this.cilindrataCtrl = ctrl;
         break;
       case 'website':
         this.websiteCtrl = ctrl;
@@ -60,10 +59,10 @@ export class InsertBrandComponent implements OnInit {
   }
 
   onSubmit(content: any) {
-    this.brandSvc.insertBrand(this.marcaFG.value)
+    this.modelSvc.insertModel(this.modelFG.value)
       .subscribe((response: any) => {
         const updateResult: UpdateResult = response;
-        this.messaggio = (updateResult.esito.marca.inserisci ? 'Added brand data!' : 'Error! Brand data not added!');
+        this.messaggio = (updateResult.esito.modello.inserisci ? 'Added brand data!' : 'Error! Brand data not added!');
         this.messaggioCtrl = false;
         this.openModal(content);
       }, (error: any) => {
@@ -75,9 +74,7 @@ export class InsertBrandComponent implements OnInit {
 
   openModal(content: any) {
     this.modalSvc.open(content, {ariaLabelledBy: 'modal-basic-title'}).result
-      .then(() => this.marcaFG.reset());
+      .then(() => this.modelFG.reset());
   }
 
 }
-
-
