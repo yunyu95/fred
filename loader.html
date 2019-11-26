@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .loader {
+            height: 100px;
+            -webkit-animation: spin 2s linear infinite;
+            /* Safari */
+            animation: spin 2s linear infinite;
+
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+            padding-top: 25%;
+            padding-bottom: 25%;
+
+        }
+
+
+        /* Safari */
+        @-webkit-keyframes spin {
+
+            0% {
+                -webkit-filter: opacity(1);
+            }
+
+            25% {
+                -webkit-filter: opacity(0.5);
+            }
+
+            50% {
+                -webkit-filter: opacity(0.2);
+            }
+
+            75% {
+                -webkit-filter: opacity(0.5);
+            }
+
+            100% {
+                -webkit-filter: opacity(1);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                filter: opacity(1);
+            }
+
+            25% {
+                filter: opacity(0.5);
+            }
+
+            50% {
+                filter: opacity(0.2);
+            }
+
+            75% {
+                filter: opacity(0.5);
+            }
+
+            100% {
+                filter: opacity(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <img src='progetto/angular/ng-vetture/src/assets/img/logo.png' class='loader'>
+
+</body>
+
+</html>
