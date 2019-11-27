@@ -79,5 +79,3 @@ export class InsertBrandComponent implements OnInit {
   }
 
 }
-
-

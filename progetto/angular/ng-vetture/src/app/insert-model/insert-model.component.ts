@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModelDataService } from '../model/model-data.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateResult } from '../model/update-result';
+import { Marca } from '../model/brand';
+import { QueryResult } from '../model/query-result';
+import { BrandDataService } from '../model/brand-data.service';
 
 
 @Component({
@@ -10,22 +13,28 @@ import { UpdateResult } from '../model/update-result';
   templateUrl: './insert-model.component.html',
   styleUrls: ['./insert-model.component.scss']
 })
+
 export class InsertModelComponent implements OnInit {
+  @Input() aux: string;
   modelFG: FormGroup;
 
   nomeCtrl = false;
   cilindrataCtrl = false;
   potenzaCtrl = false;
+  id_marca: number;
 
   messaggio: string;
   messaggioCtrl = false;
 
-  brands = ['Abarth', 'Alfa Romeo', 'Alfred', 'Aston Martin', 'Audi', 'BMW', 'Bugatti', 'Ferrari', 'FIAT', 'Lamborghini', 'Maserati', 'Mercedes-Benz', 'Opel', 'Porsche'];
+  listaMarche: Array<Marca>;
 
-  constructor(private fb: FormBuilder, private modelSvc: ModelDataService, private modalSvc: NgbModal) { }
+  constructor(private fm: FormBuilder, private modelSvc: ModelDataService, private brandSvc: BrandDataService, private modalSvc: NgbModal) {
+
+  }
+
 
   ngOnInit() {
-    this.modelFG = this.fb.group({
+    this.modelFG = this.fm.group({
       nome: [
         '',
         Validators.required
@@ -41,10 +50,23 @@ export class InsertModelComponent implements OnInit {
         '',
         Validators.compose([
           Validators.required,
-          Validators.pattern(/^[0-9]{3}$/)
+          Validators.pattern(/^[0-9]{2,3}$/)
         ])
-      ]
+      ],
+      idMarca: ['marca']
     });
+
+
+
+    this.brandSvc.getAllBrands()
+      .subscribe((response: any) => {
+        const queryResult: QueryResult = response;
+        this.listaMarche = queryResult.esito.marca;
+      }, (error: any) => {
+        setTimeout(() => {
+          this.messaggio = 'No brands found!<br><br>HTTP error!<br><br>' + error.message;
+        }, 7000);
+      });
   }
 
   check(element: string) {
@@ -62,6 +84,7 @@ export class InsertModelComponent implements OnInit {
   }
 
   onSubmit(content: any) {
+    console.log("id", this.modelFG.value);
     this.modelSvc.insertModel(this.modelFG.value)
       .subscribe((response: any) => {
         const updateResult: UpdateResult = response;
