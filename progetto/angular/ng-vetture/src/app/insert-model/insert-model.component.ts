@@ -4,6 +4,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateResult } from '../model/update-result';
 
+
 @Component({
   selector: 'app-insert-model',
   templateUrl: './insert-model.component.html',
@@ -14,10 +15,12 @@ export class InsertModelComponent implements OnInit {
 
   nomeCtrl = false;
   cilindrataCtrl = false;
-  websiteCtrl = false;
+  potenzaCtrl = false;
 
   messaggio: string;
   messaggioCtrl = false;
+
+  brands = ['Abarth', 'Alfa Romeo', 'Alfred', 'Aston Martin', 'Audi', 'BMW', 'Bugatti', 'Ferrari', 'FIAT', 'Lamborghini', 'Maserati', 'Mercedes-Benz', 'Opel', 'Porsche'];
 
   constructor(private fb: FormBuilder, private modelSvc: ModelDataService, private modalSvc: NgbModal) { }
 
@@ -34,11 +37,11 @@ export class InsertModelComponent implements OnInit {
           Validators.pattern(/^[0-9]{4}$/)
         ])
       ],
-      website: [
+      potenza: [
         '',
         Validators.compose([
           Validators.required,
-          Validators.pattern(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i)
+          Validators.pattern(/^[0-9]{3}$/)
         ])
       ]
     });
@@ -53,8 +56,8 @@ export class InsertModelComponent implements OnInit {
       case 'cilindrata':
         this.cilindrataCtrl = ctrl;
         break;
-      case 'website':
-        this.websiteCtrl = ctrl;
+      case 'potenza':
+        this.potenzaCtrl = ctrl;
     }
   }
 
@@ -62,7 +65,7 @@ export class InsertModelComponent implements OnInit {
     this.modelSvc.insertModel(this.modelFG.value)
       .subscribe((response: any) => {
         const updateResult: UpdateResult = response;
-        this.messaggio = (updateResult.esito.modello.inserisci ? 'Added brand data!' : 'Error! Brand data not added!');
+        this.messaggio = (updateResult.esito.modello.inserisci ? 'Added model data!' : 'Error! Model data not added!');
         this.messaggioCtrl = false;
         this.openModal(content);
       }, (error: any) => {
@@ -73,7 +76,7 @@ export class InsertModelComponent implements OnInit {
   }
 
   openModal(content: any) {
-    this.modalSvc.open(content, {ariaLabelledBy: 'modal-basic-title'}).result
+    this.modalSvc.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then(() => this.modelFG.reset());
   }
 
