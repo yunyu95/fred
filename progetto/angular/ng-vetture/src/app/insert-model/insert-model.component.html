@@ -43,6 +43,7 @@
                         'input-err': marcaCtrl
                        }" required autofocus (input)="check('marca')" (blur)="check('marca')" formControlName="idMarca"
               class="browser-default custom-select">
+              <option value="" disabled selected id="marcaInvisible">marca</option>
               <option *ngFor="let marca of listaMarche" value="{{marca.idMarca}}">
                 {{ marca.nome }}
               </option>

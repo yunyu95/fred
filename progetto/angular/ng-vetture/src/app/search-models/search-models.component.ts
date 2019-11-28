@@ -14,7 +14,7 @@ import { Modello } from '../model/model';
 })
 export class SearchModelsComponent implements OnInit {
 
-  info: FormGroup = this.fb.group({
+  info: FormGroup = this.fm.group({
     nome: ['', Validators.required]
   });
   listaModelli: Array<Modello>;
@@ -25,7 +25,7 @@ export class SearchModelsComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor(private fb: FormBuilder, private brandSvc: BrandDataService, private modelSvc: ModelDataService) { }
+  constructor(private fm: FormBuilder, private brandSvc: BrandDataService, private modelSvc: ModelDataService) { }
 
   ngOnInit() {
   }
@@ -40,6 +40,7 @@ export class SearchModelsComponent implements OnInit {
           const queryResult: QueryResult = response;
           this.listaModelli = queryResult.esito.modello;
           this.modelliTrovati = this.listaModelli.length;
+          if(this.modelliTrovati !=0){
           this.brandSvc.getBrandById(this.listaModelli[0].idMarca)
             .subscribe((response: any) => {
               const queryResult: QueryResult = response;
@@ -49,6 +50,7 @@ export class SearchModelsComponent implements OnInit {
               this.messaggio = 'HTTP error!<br><br>' + error.message;
               this.isCollapsed = false;
             });
+          }
           this.isCollapsed = false;
         }, (error: any) => {
           this.messaggio = 'HTTP error!<br><br>' + error.message;

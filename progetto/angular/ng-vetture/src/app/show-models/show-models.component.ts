@@ -57,7 +57,7 @@ export class ShowModelsComponent implements OnInit {
           .subscribe((response: any) => {
             const updateResult: UpdateResult = response;
             if (updateResult.esito.modello.rimuovi) {
-              this.listaModelli = this.listaModelli.filter((m: Marca) => m.idMarca !== id);
+              this.listaModelli = this.listaModelli.filter((m: Modello) => m.idModello !== id);
               this.collectionSize = this.listaModelli.length;
               this.messaggio = 'Model data removed!';
             } else {

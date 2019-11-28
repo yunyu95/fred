@@ -22,6 +22,7 @@ import { PricePipe } from './pipes/price.pipe';
 import { InsertModelComponent } from './insert-model/insert-model.component';
 import { SearchModelsComponent } from './search-models/search-models.component';
 import { ShowModelsComponent } from './show-models/show-models.component';
+import { UpdateModelComponent } from './update-model/update-model.component';
 
 
 
@@ -42,7 +43,8 @@ import { ShowModelsComponent } from './show-models/show-models.component';
     PricePipe,
     InsertModelComponent,
     SearchModelsComponent,
-    ShowModelsComponent
+    ShowModelsComponent,
+    UpdateModelComponent
   ],
   imports: [
     BrowserModule,

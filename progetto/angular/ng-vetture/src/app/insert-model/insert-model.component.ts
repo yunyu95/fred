@@ -53,7 +53,7 @@ export class InsertModelComponent implements OnInit {
           Validators.pattern(/^[0-9]{2,3}$/)
         ])
       ],
-      idMarca: ['marca']
+      idMarca: ['']
     });
 
 
