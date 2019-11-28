@@ -10,7 +10,8 @@ import { Modello } from '../model/model';
   selector: 'app-search-models',
   templateUrl: './search-models.component.html',
   styleUrls: ['./search-models.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  moduleId:module.id
 })
 export class SearchModelsComponent implements OnInit {
 
@@ -20,7 +21,8 @@ export class SearchModelsComponent implements OnInit {
   listaModelli: Array<Modello>;
   modelliTrovati: number;
   marca: string;
-
+  fondazione:number;
+  website:string;
   messaggio: string;
 
   isCollapsed = true;
@@ -45,6 +47,8 @@ export class SearchModelsComponent implements OnInit {
             .subscribe((response: any) => {
               const queryResult: QueryResult = response;
               this.marca = queryResult.esito.marca[0].nome;
+              this.fondazione = queryResult.esito.marca[0].fondazione;
+              this.website = queryResult.esito.marca[0].website;
               this.isCollapsed = false;
             }, (error: any) => {
               this.messaggio = 'HTTP error!<br><br>' + error.message;
